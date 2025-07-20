@@ -22,7 +22,7 @@ public class SupportChatModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private UUID id;
+	private Integer id;
 	
 	@ManyToOne
 	@JoinColumn(name ="id_user_user", nullable = false)

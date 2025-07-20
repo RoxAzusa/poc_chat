@@ -20,10 +20,10 @@ public class UserModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private UUID id;
+	private Integer id;
 	
 	@Column(name = "id_language")
-	private UUID id_language;
+	private Integer id_language;
 	
 	@Enumerated(EnumType.STRING)
 	private RoleType role;
@@ -47,10 +47,10 @@ public class UserModel {
 	private String address;
 	
 	public enum RoleType {
-		USER,
-		SUPPORT,
-		EMPLOYEE,
-		ADMIN
+		User,
+		Support,
+		Employee,
+		Admin
 	}
 
 }

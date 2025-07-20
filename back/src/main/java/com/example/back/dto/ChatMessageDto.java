@@ -7,8 +7,8 @@ import lombok.Data;
 
 @Data
 public class ChatMessageDto {
-	private UUID supportChatId;
-	private UUID senderId;
+	private Integer supportChatId;
+	private Integer senderId;
 	private String content;
 	private LocalDateTime sendDate;
 }
