@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../service/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { LoginRequest } from '../../models/loginRequest.model';
 import { User } from '../../models/user.model';
 
@@ -13,17 +13,15 @@ import { User } from '../../models/user.model';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
+  email: string = '';
+  password: string = '';
 
   constructor(
     private authService: AuthService,
-    private router: Router) {
-  }
+    private router: Router
+  ) { }
 
-  ngOnInit(): void {
-  }
-
-  email: string = '';
-  password: string = '';
+  ngOnInit(): void { }
 
   public submit(): void {
     const loginRequest: LoginRequest = {
