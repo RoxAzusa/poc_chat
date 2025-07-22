@@ -48,4 +48,18 @@ public class ChatService {
 
 		messageRepository.save(message);
 	}
+
+	public ChatModel solvedChat(int idChat) {
+		ChatModel chat = chatRepository.findById(idChat)
+				.orElseThrow(() -> new IllegalArgumentException("Chat with ID " + idChat + " not found."));
+
+		if (chat == null) {
+			return null;
+		}
+
+		chat.setSolved(true);
+		ChatModel result = chatRepository.save(chat);
+
+		return result;
+	}
 }
