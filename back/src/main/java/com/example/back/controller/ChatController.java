@@ -19,8 +19,8 @@ public class ChatController {
 	@MessageMapping("/chat.sendMessage")
 	public void sendMessage(@Payload ChatMessageDto messageDto) {
 		chatService.saveMessage(messageDto);
-		
-		String destination = "/topic/support." + messageDto.getSupportChatId();
+
+		String destination = "/topic/support." + messageDto.getChatId();
 		messagingTemplate.convertAndSend(destination, messageDto);
 	}
 }

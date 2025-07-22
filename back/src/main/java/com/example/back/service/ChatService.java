@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.back.dto.ChatMessageDto;
 import com.example.back.model.MessageModel;
-import com.example.back.model.SupportChatModel;
+import com.example.back.model.ChatModel;
 import com.example.back.model.UserModel;
 import com.example.back.repository.MessageRepository;
-import com.example.back.repository.SupportChatRepository;
+import com.example.back.repository.ChatRepository;
 import com.example.back.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -18,22 +18,20 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ChatService {
 	private final MessageRepository messageRepository;
-	private final SupportChatRepository supportChatRepository;
+	private final ChatRepository chatRepository;
 	private final UserRepository userRepository;
-	
+
 	public void saveMessage(ChatMessageDto chatMessageDto) {
-		SupportChatModel chat = supportChatRepository.findById(chatMessageDto.getSupportChatId())
-				.orElseThrow(() -> new IllegalArgumentException("Support chat not found"));
-		
 		UserModel sender = userRepository.findById(chatMessageDto.getSenderId())
 				.orElseThrow(() -> new IllegalArgumentException("Sender not found"));
-		
+		ChatModel chat = chatRepository.findById(chatMessageDto.getChatId())
+				.orElseThrow(() -> new IllegalArgumentException("Chat not found"));
 		MessageModel message = new MessageModel();
-		message.setSupportChat(chat);
+		message.setChat(chat);
 		message.setSender(sender);
 		message.setContent(chatMessageDto.getContent());
 		message.setSendDate(chatMessageDto.getSendDate() != null ? chatMessageDto.getSendDate() : LocalDateTime.now());
-		
+
 		messageRepository.save(message);
 	}
 }
