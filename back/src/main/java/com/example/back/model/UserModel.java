@@ -1,7 +1,6 @@
 package com.example.back.model;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,36 +20,33 @@ public class UserModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
+
 	@Column(name = "id_language")
 	private Integer id_language;
-	
+
 	@Enumerated(EnumType.STRING)
 	private RoleType role;
-	
+
 	@Column(name = "email", nullable = false, unique = true)
 	private String email;
-	
+
 	@Column(name = "password", nullable = false)
 	private String password;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	@Column(name = "birth_date")
 	private LocalDate birthDate;
-	
+
 	@Column(name = "address")
 	private String address;
-	
+
 	public enum RoleType {
-		User,
-		Support,
-		Employee,
-		Admin
+		User, Support, Employee, Admin
 	}
 
 }
