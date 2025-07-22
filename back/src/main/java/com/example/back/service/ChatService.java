@@ -24,8 +24,22 @@ public class ChatService {
 	public void saveMessage(ChatMessageDto chatMessageDto) {
 		UserModel sender = userRepository.findById(chatMessageDto.getSenderId())
 				.orElseThrow(() -> new IllegalArgumentException("Sender not found"));
+
+		if (chatMessageDto.getChatId() == null) {
+			ChatModel supportChat = new ChatModel();
+			supportChat.setRequestingUser(sender);
+			chatRepository.save(supportChat);
+			chatMessageDto.setChatId(supportChat.getId());
+		}
+
 		ChatModel chat = chatRepository.findById(chatMessageDto.getChatId())
 				.orElseThrow(() -> new IllegalArgumentException("Chat not found"));
+
+		if (chat != null && sender.getRole() == UserModel.RoleType.Support && chat.getUserAnswerSupport() == null) {
+			chat.setUserAnswerSupport(sender);
+			chatRepository.save(chat);
+		}
+
 		MessageModel message = new MessageModel();
 		message.setChat(chat);
 		message.setSender(sender);
