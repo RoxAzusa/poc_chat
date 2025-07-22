@@ -1,1 +1,21 @@
-{{user?.role}}
+<div class="chat-container">
+  <div class="chat-header">
+    <div class="header-content">
+      <h2>Chat</h2>
+      <p>Connecté en tant que : {{ currentUser.role === 'User' ? 'Utilisateur' : (currentUser.role === 'Support' ?
+        'Support' : currentUser.role) }}</p>
+    </div>
+    <button class="logout-btn" (click)="onLogoutClick()">Déconnexion</button>
+  </div>
+
+  <div class="messages">
+    <div *ngFor="let msg of messages" [class.my-message]="msg.senderId === currentUser.id">
+      {{ msg.content }}
+    </div>
+  </div>
+
+  <div class="input">
+    <input [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" placeholder="Votre message" />
+    <button (click)="sendMessage()">Envoyer</button>
+  </div>
+</div>

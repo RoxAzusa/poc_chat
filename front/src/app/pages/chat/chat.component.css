@@ -1,0 +1,158 @@
+.chat-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  max-width: 800px;
+  margin: 30px auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.chat-header {
+  background-color: #4A90E2;
+  color: #ffffff;
+  padding: 20px 25px;
+  border-bottom: 1px solid #357ABD;
+  display: flex;
+  justify-content: space-between; /* Aligne les éléments sur les côtés */
+  align-items: center; /* Centre les éléments verticalement */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.chat-header h2 {
+  margin: 0;
+  font-size: 2.2em;
+  font-weight: bold;
+}
+
+.header-content p {
+  margin: 0;
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+/* Style du bouton de déconnexion */
+.logout-btn {
+  background-color: rgba(255, 255, 255, 0.2); /* Fond semi-transparent */
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.logout-btn:active {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(0);
+}
+
+.messages {
+  flex-grow: 1;
+  padding: 20px 25px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.messages div {
+  padding: 12px 18px;
+  border-radius: 18px;
+  max-width: 75%;
+  word-wrap: break-word;
+  line-height: 1.6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 1.05em;
+}
+
+.messages .my-message {
+  background-color: #F5F5F5;
+  color: #333333;
+  align-self: flex-end;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+
+.messages div:not(.my-message) {
+  background-color: #DDEBF7;
+  color: #333333;
+  align-self: flex-start;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+.messages div strong {
+  display: block;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555555;
+}
+
+.input {
+  display: flex;
+  padding: 15px 25px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #ffffff;
+  gap: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.input input {
+  flex-grow: 1;
+  padding: 14px 20px;
+  border: 1px solid #cccccc;
+  border-radius: 28px;
+  font-size: 1.1em;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input input:focus {
+  border-color: #4A90E2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+}
+
+.input button {
+  background-color: #4A90E2;
+  color: #ffffff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 28px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 600;
+}
+
+.input button:hover {
+  background-color: #357ABD;
+  transform: translateY(-1px);
+}
+
+.input button:active {
+  background-color: #2A6496;
+  transform: translateY(0);
+}

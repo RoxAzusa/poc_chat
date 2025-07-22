@@ -4,6 +4,7 @@ import { ChatComponent } from './pages/chat/chat.component';
 
 
 export const routes: Routes = [
-    {path: 'chat', component: ChatComponent}
     { path: '', component: LoginComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'chat', component: ChatComponent }
 ];
