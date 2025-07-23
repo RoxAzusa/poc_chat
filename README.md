@@ -83,7 +83,7 @@ Définissez les variables d'environnement suivantes sur votre machine :
      CREATE DATABASE poc_chat;
      ```
 
-3. Initalisez la base de données avec le `script.sql` fournit dans le dossier **ressources\sql**
+3. Initalisez la base de données avec le `script.sql` fournit dans le dossier **ressources**
 
 4. Assurez-vous que le service MySQL est démarré et que les identifiants configurés dans `application.properties` sont corrects.
 
